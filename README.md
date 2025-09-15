@@ -1,4 +1,4 @@
-#Landwetter - Wetter-Dashboard für Landwirtschaft
+# Landwetter - Wetter-Dashboard für Landwirtschaft
 
 Web-App für Landwirt:Innen: aktuelle Wetterdaten, 3-Tage-Prognose, Niederschlagsradar,
 Wind & Böen, **Mais-Gesundheitsindikator**
