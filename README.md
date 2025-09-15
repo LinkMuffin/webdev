@@ -51,7 +51,8 @@ landwetter/
 # Beispiel: lokaler Start (Binary)
 ./pocketbase serve --https=0.0.0.0:8090 -dir pb/pb_data
 # Admin UI: http://localhost:8090/_/
-``
+```
+
 
 ## Nutzer anlegen
 
