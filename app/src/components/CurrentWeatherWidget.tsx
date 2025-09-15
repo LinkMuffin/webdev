@@ -1,10 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { pb } from "@/lib/pb";
+import { useI18n } from "@/components/I18nProvider";
 
 type Snap = { ts: string; t2m_K: number; rr_mm: number; eto_mm: number } | null;
 
 export default function CurrentWeatherWidget() {
+  const { t } = useI18n();
   const [snap, setSnap] = useState<Snap>(null);
   const [isForecast, setIsForecast] = useState(false);
 
@@ -64,14 +66,12 @@ export default function CurrentWeatherWidget() {
 
   return (
     <div className="space-y-2">
-      <h3 className="text-lg font-semibold">
-        {isForecast ? "Nächster Wert (Prognose)" : "Aktuelles Wetter"}
-      </h3>
+      <h3 className="text-lg font-semibold">{isForecast ? t("forecast.title") : t("weather.current")}</h3>
       <div className="text-sm">
-        <div>Temperatur: <span className="font-mono">{tC.toFixed(1)} °C</span></div>
-        <div>Niederschlag: <span className="font-mono">{(snap.rr_mm ?? 0).toFixed(1)} mm</span></div>
-        <div>ET₀: <span className="font-mono">{(snap.eto_mm ?? 0).toFixed(1)} mm</span></div>
-        <div className="opacity-70 text-xs">Zeit: {new Date(snap.ts).toLocaleString()}</div>
+        <div>{t("weather.temp")}: <span className="font-mono">{tC.toFixed(1)} °C</span></div>
+        <div>{t("weather.rain")}: <span className="font-mono">{(snap.rr_mm ?? 0).toFixed(1)} mm</span></div>
+        <div>{t("weather.eto")}: <span className="font-mono">{(snap.eto_mm ?? 0).toFixed(1)} mm</span></div>
+        <div className="opacity-70 text-xs">{t("weather.time")}: {new Date(snap.ts).toLocaleString()}</div>
       </div>
     </div>
   );
