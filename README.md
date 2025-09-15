@@ -11,7 +11,9 @@ Wind & Böen, **Mais-Gesundheitsindikator**
 - **Dark/Light/System - Theme** + Lokalisierung **Deutsch/Englisch** umschaltbar
 - **Mais-Indikator**: Wasserbilanz über Fenster 'window_days' (ET nach Hargreaves, Kc-Kurve für Mais)
 
-##Stack
+![Dashboard-Screenshot](./Dashboard_Screenshot.png)
+
+## Stack
 
 - **Frontend**: Next.js(React+TypeScript)
 - **Backend/DB**: PocketBase (Auth, REST, Realtime, SQLite)
@@ -20,9 +22,21 @@ Wind & Böen, **Mais-Gesundheitsindikator**
 ## Repository-Struktur
 
 landwetter/
+|-- app/# Next.js App
+| |--src/
+| | |--app/..(pages)
+| | |--components/..(Widgets,I18n,Theme)
+| | |--lib/..(pb client, dashboardStore)
+| |--.env.local # NEXT_PUBLIC_PB_URL=..
+|-- pb/ # Pocketbase Daten(pb_data/)
+|-- scripts/  Python Importer (DWD)
+| |--dwd_sync.py
+| |--run_dwd_sync.sh
+| |--.venv/(virtualenv)
+|--README.md
+|--Bericht.md
 
-
-##Vorraussetzungen
+## Vorraussetzungen
 
 - Node 18+/20+
 - Python 3.10+
@@ -35,6 +49,7 @@ landwetter/
 # Beispiel: lokaler Start (Binary)
 ./pocketbase serve --https=0.0.0.0:8090 -dir pb/pb_data
 # Admin UI: http://localhost:8090/_/
+``
 
 ## Nutzer anlegen
 
@@ -121,6 +136,9 @@ crontab -e
 ```
 # Wie der Mais-Indikator berechnet wird
 
+Anmerkung: Es gibt keine Gewährleistung für die Richtigkeit der Aussagen, die der Mais-Indikator trifft.
+Ich bin ein Leihe auf dem Gebiet und habe mich versucht bestmöglich einzulesen.
+
 - **ET₀ (Hargreaves–Samani, FAO-56)**  
   $ET_0 = 0{,}0023 \cdot (T_{\text{mean}} + 17{,}8) \cdot \sqrt{\,T_{\text{max}} - T_{\text{min}}\,} \cdot R_a$
 
@@ -149,6 +167,10 @@ curl http://localhost:8090/api/health
 - Radar: RainViewer (eingebetteter Player, Link/Button "Get RainViewer" bleibt sichtbar).
 Bitte Nutzungsbedinungen beachten, für educational purpuses frei nutzbar
 
+## Anmerkung
+
+Leider habe ich auch nach mehrfacher Anfrage keinen Cloudzugriff von der GWDG bekommen, deshalb läuft alles Lokal. 
+Ich hoffe dafür gibts nicht zu viel Abzug :( . 
 
 
 
