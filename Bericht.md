@@ -1,4 +1,4 @@
- datemm# Landwetter - Wetter-Dashboard für Landwirtschaft (Bericht)
+# Landwetter - Wetter-Dashboard für Landwirtschaft (Bericht)
 
 ## 1. Ziel & Motivation
 Ziel ist eine Webandwendung, die aktuelle Wetter- und Agrarinformationen für landwirtschaftliche
@@ -32,10 +32,12 @@ ob Bewässerung erforderlich ist.
 - Schreiben: `dashboards` nur eigener User; `weather_snapshots`/`maize_indicator` nur Import-User/Server.
 
 ## 4. Fachlogik Mais-Indikator
-- **ET₀** nach Hargreaves-Samani (FAO-56).
+Hilfreich war vorallem: https://www.fao.org/4/x0490e/x0490e00.htm#Contents
+- **ET₀** nach Hargreaves-Samani (FAO-56). Gleichung aus Kapitel 3 als Alternative,
+wenn Strahlung/Feuchte/Wind fehlen
 - **Kc-Kurve Mais** (vereinfacht): 0.3 -> 1.2 -> 0.7 -> 0.5 je nach Tagen nach Aussaat.
-- **ETc = Kc · ET₀**; **Wasserbilanz** = Summe (Regen − ETc) über Fenster `window_days`.
-- **Einstufung**: `ok ≥ 0 mm`, `warnung ≥ −30 mm`, `kritisch < −30 mm` -> Darstellung als Pflanze (vital/gestresst/vertrocknet).
+- **ETc = Kc · ET₀**; **Wasserbilanz** = Summe (Regen − ETc) über Fenster `window_days`. Kc Konzept - Kapitel 5/6 ; Kapitel 6 - "ETc- Single crop coefficient(KC)", siehe für mais auch table 12
+- **Einstufung**: `ok ≥ 0 mm`, `warnung ≥ −30 mm`, `kritisch < −30 mm` -> Darstellung als Pflanze (vital/gestresst/vertrocknet). siehe auch Kapitel 8
 
 
 ## 5. Implementierung Frontend
