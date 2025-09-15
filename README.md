@@ -21,6 +21,7 @@ Wind & Böen, **Mais-Gesundheitsindikator**
 
 ## Repository-Struktur
 
+``
 landwetter/
 |-- app/# Next.js App
 | |--src/
@@ -35,6 +36,7 @@ landwetter/
 | |--.venv/(virtualenv)
 |--README.md
 |--Bericht.md
+``
 
 ## Vorraussetzungen
 
