@@ -1,0 +1,17 @@
+/home/marvin/Introduction_into_web_development/Abschlussprojekt/landwetter/scripts/dwd_sync.py:28: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  SOWING_DATE_STR = os.environ.get("SOWING_DATE", f"{datetime.utcnow().year}-05-01")
+/home/marvin/Introduction_into_web_development/Abschlussprojekt/landwetter/scripts/dwd_sync.py:186: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  today = datetime.utcnow().date()
+OK: station=10444 name=Goettingen lat=51.54 lon=9.93 balance=-10.6mm level=warnung state=gestresst (user=jz4u6saize7xupr)
+/home/marvin/Introduction_into_web_development/Abschlussprojekt/landwetter/scripts/dwd_sync.py:28: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  SOWING_DATE_STR = os.environ.get("SOWING_DATE", f"{datetime.utcnow().year}-05-01")
+Traceback (most recent call last):
+  File "/home/marvin/Introduction_into_web_development/Abschlussprojekt/landwetter/scripts/dwd_sync.py", line 230, in <module>
+    main()
+  File "/home/marvin/Introduction_into_web_development/Abschlussprojekt/landwetter/scripts/dwd_sync.py", line 195, in main
+    upsert("weather_snapshots", data, token, rid=None)
+  File "/home/marvin/Introduction_into_web_development/Abschlussprojekt/landwetter/scripts/dwd_sync.py", line 54, in upsert
+    r.raise_for_status()
+  File "/home/marvin/Introduction_into_web_development/Abschlussprojekt/landwetter/scripts/.venv/lib/python3.12/site-packages/requests/models.py", line 1026, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 400 Client Error: Bad Request for url: http://localhost:8090/api/collections/weather_snapshots/records
