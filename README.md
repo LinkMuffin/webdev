@@ -31,6 +31,125 @@ landwetter/
 
 ## Pocketbase starten
 
-'''bash
+```bash
 # Beispiel: lokaler Start (Binary)
-./pocketbase serve --https=0.0.0.0:8090 -dir
+./pocketbase serve --https=0.0.0.0:8090 -dir pb/pb_data
+# Admin UI: http://localhost:8090/_/
+
+## Nutzer anlegen
+
+- In der Admin-UI -> **users** -> neuen Benutzer (E-Mail/Passwort) erstellen.
+- (Für MVP ohne E-Mail-Verifikation.)
+
+## Collections (Kurzüberblick)
+
+**maize_indicator** (Base)
+- location_name(text, required=
+- lat (number), lon(number
+- window_days(number)
+- water_balance__mm(number
+- stress_level (select: ok|warnung|kritisch)
+- plant_state(select: vital|gestresst|vertrocknet)
+
+**weather_snapshots** (Base)
+- station_id(text)
+- lat (number), lon(number)
+- ts (date, required)
+- t2m_K(number), rr_mm(number), eto_mm(number)
+- wind_ms(number), gust_kmh(number)
+
+**dashboards** (Base)
+- user (relation -> users, required, unique per user)
+- layout_json (json), widgets_json(json, optional)
+
+**API Rules**
+- List/Viwe: @request.auth.id != ""
+- Create/Update/delete:
+  - dashboards: user.id = @request.auth.id
+  - maize_indicator/wheather_snapshots: nur Import-User/Script
+  
+## 2.) Frontend starten
+
+```bash
+
+cd app
+npm i
+printf "NEXT_PUBLIC_PB_URL=http://localhost:8090\n" > .env.local
+npm run dev
+# http://localhost:3000
+```
+
+Login unter/login   .
+
+## 3.) DWD-Importer (Python)
+
+```bash
+cd scripts
+python3 -m venv .venv && source .venv/bin/activvate
+pip install requests
+```
+
+Umgebung setzen:
+
+```bash
+
+export PB_URL=http://localhost:8090
+export PB_USER_EMAIL='testUser@example.com'
+export PB_USER_PASSWORD='testPassword'
+
+export DWD_API=https://dwd.api.proxy.bund.dev
+export DWD_STATION=10444
+export SOWING_DATE=2025-05-01
+export WINDOW_DAYS=7
+
+export LAT=51.54
+export LON=9.93
+export LOCATION='Göttingen'
+```
+
+Dann:
+```bash
+python3 dwd_sync.py
+```
+
+## Cron einrichten(alle 8h)
+
+```bash
+crontab -e
+# Beispielzeile:
+0 */8 * * * /PFAD/landwetter/scripts/run_dwd_sync.sh >> /PFAD/landwetter/scripts/dwd.log 2>&1
+```
+# Wie der Mais-Indikator berechnet wird
+
+- **ET₀ (Hargreaves–Samani, FAO-56)**  
+  $ET_0 = 0{,}0023 \cdot (T_{\text{mean}} + 17{,}8) \cdot \sqrt{\,T_{\text{max}} - T_{\text{min}}\,} \cdot R_a$
+
+- **Kulturkoeffizient $K_c$ (Mais, grob):**  
+  0–30 Tage: 0,3 -> 30–60 Tage: *linear bis* 1,2 -> 60–110: 1,2 -> 110–140: 0,7 -> danach 0,5
+
+- **$ET_c = K_c \cdot ET_0$**
+
+- **Wasserbilanz (Fenster `window_days`):**  
+  $\sum (Regen_{\text{Tag}} - ETc_{\text{Tag}})$
+
+- **Schwellen:**  
+  ok (≥ 0 mm), warnung (≥ −30 mm), kritisch (< −30 mm)
+
+-> Visualisierung als Pflanze (vital/gesund -> gestresst/vertrocknet).
+
+## Troubleshooting
+- PB gesund?
+```bash
+curl http://localhost:8090/api/health
+```
+
+## Danksagungen/Lizenzen
+
+- DWD API: dwd.api.proxy.bund.dev
+- Radar: RainViewer (eingebetteter Player, Link/Button "Get RainViewer" bleibt sichtbar).
+Bitte Nutzungsbedinungen beachten, für educational purpuses frei nutzbar
+
+
+
+
+
