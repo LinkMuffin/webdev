@@ -26,6 +26,7 @@ landwetter/
 |-- app/# Next.js App
 | |--src/
 | | |--app/..(pages)
+| | | |--legal/..(Impressum, Datenschutz, Barrierefreiheit)
 | | |--components/..(Widgets,I18n,Theme)
 | | |--lib/..(pb client, dashboardStore)
 | |--.env.local # NEXT_PUBLIC_PB_URL=..
@@ -38,12 +39,16 @@ landwetter/
 |--Bericht.md
 ```
 
+## Legal
+Für Impressum, Datenschutz, Barrierefreiheit Hinweise bitte F11 drücken.
+
 ## Vorraussetzungen
 
 - Node 18+/20+
 - Python 3.10+
 - PocketBase Binary (oder Docker)
 - Internetzugang für DWD-API
+
 
 ## Pocketbase starten
 
