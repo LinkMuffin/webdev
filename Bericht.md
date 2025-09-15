@@ -62,6 +62,7 @@ Mais-Indikator funktional.
 - **Trade-off**: 
   - PocketBase anstelle eines "klassischen" Backend - großes Zeitersparnis
   - Usererstellung erfolgt Manuell durch einen Admin
+  - Unten aufgelistetes weiteres Potential wurde rausgelassen - out of scope
 - **Weiteres Potential**:
   - zusätzliche Kulturen (weitere Kc-Kurven),
   - konfigurerbare Stationen,
