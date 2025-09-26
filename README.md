@@ -13,6 +13,13 @@ Wind & Böen, **Mais-Gesundheitsindikator**
 
 ![Dashboard-Screenshot](./Dashboard_Screenshot.png)
 
+## Läuft nun auf den GWDG Servern
+Pocketbase Login: https://141.5.106.126.sslip.io/pb/_/#/login
+
+Website: https://141.5.106.126.sslip.io/
+
+PB-API Healthcheck: https://141.5.106.126.sslip.io/pb/api/health
+
 ## Stack
 
 - **Frontend**: Next.js(React+TypeScript)
@@ -54,7 +61,7 @@ Für Impressum, Datenschutz, Barrierefreiheit Hinweise bitte F11 drücken.
 
 ```bash
 # Beispiel: lokaler Start (Binary)
-./pocketbase serve --https=0.0.0.0:8090 -dir pb/pb_data
+./pocketbase serve --http 127.0.0.1:8090 --dir pb_data
 # Admin UI: http://localhost:8090/_/
 ```
 
@@ -145,7 +152,8 @@ crontab -e
 # Wie der Mais-Indikator berechnet wird
 
 Anmerkung: Es gibt keine Gewährleistung für die Richtigkeit der Aussagen, die der Mais-Indikator trifft.
-Ich bin ein Leihe auf dem Gebiet und habe mich versucht bestmöglich einzulesen.
+Ich bin ein Laie auf dem Gebiet und habe mich versucht bestmöglich einzulesen.
+Formeln hier entnommen: https://www.fao.org/4/x0490e/x0490e00.htm#Contents
 
 - **ET₀ (Hargreaves–Samani, FAO-56)**  
   $ET_0 = 0{,}0023 \cdot (T_{\text{mean}} + 17{,}8) \cdot \sqrt{\,T_{\text{max}} - T_{\text{min}}\,} \cdot R_a$

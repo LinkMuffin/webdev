@@ -12,6 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import ThemeProvider from "@/components/ThemeProvider";
 import I18nProvider from "@/components/I18nProvider";
 
 export const metadata: Metadata = {
@@ -23,10 +24,9 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="de">
+   <html lang="de" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* WICHTIG: I18nProvider muss über allen Seiten/Komponenten liegen,
-           die useI18n verwenden (z. B. Dashboard). */}
+       <ThemeProvider>
         <I18nProvider>
           <main id="content">{children}</main>
 
@@ -38,6 +38,7 @@ export default function RootLayout({
             </nav>
           </footer>
         </I18nProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
