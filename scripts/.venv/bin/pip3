@@ -1,4 +1,4 @@
-#!/home/marvin/Introduction_into_web_development/Abschlussprojekt/landwetter/scripts/.venv/bin/python3
+#!/home/cloud/landwetter/scripts/.venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

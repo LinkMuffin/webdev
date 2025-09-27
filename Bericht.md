@@ -73,4 +73,6 @@ Mais-Indikator funktional.
 - DWDAPI via bundesAPI (öffentlicher Zugang, bitte Nutzungsbedingungen beachten
 - Radar eingebettet über RainViewer (Branding/Link bleibt sichtbar, für Edu-Purposes nutzen)
 
-
+## Im Anschluss
+- Das ganze wurde nun auf den Server der GWDG deployed, bzw. auf deren Linux-VM
+  Hierbei wurde nichts wesentliches verändert und nur ein paar bugs gefixed die mir aufgefallen sind.

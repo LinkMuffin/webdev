@@ -308,3 +308,5 @@ Traceback (most recent call last):
   File "/home/marvin/Introduction_into_web_development/Abschlussprojekt/landwetter/scripts/.venv/lib/python3.12/site-packages/requests/adapters.py", line 677, in send
     raise ConnectionError(e, request=request)
 requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8090): Max retries exceeded with url: /api/collections/users/auth-with-password (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f294b13eb10>: Failed to establish a new connection: [Errno 111] Connection refused'))
+OK: station=10444 name=Goettingen lat=51.54 lon=9.93 balance=-6.8mm level=warnung state=gestresst (records=10 bis 2025-10-05) (user=jz4u6saize7xupr)
+OK: station=10444 name=Goettingen lat=51.54 lon=9.93 balance=-14.0mm level=warnung state=gestresst (records=10 bis 2025-10-06) (user=jz4u6saize7xupr)

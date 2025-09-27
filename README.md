@@ -20,6 +20,22 @@ Website: https://141.5.106.126.sslip.io/
 
 PB-API Healthcheck: https://141.5.106.126.sslip.io/pb/api/health
 
+To check if active:
+PocketBase:
+´´´
+systemctl is-enabled pocketbase
+systemctl is-active pocketbase
+´´´
+Cron:
+´´´
+systemctl is-active cron
+´´´
+landwetter-dev:
+´´´
+systemctl status landwetter-dev --no-pager
+´´´
+
+
 ## Stack
 
 - **Frontend**: Next.js(React+TypeScript)
@@ -182,11 +198,6 @@ curl http://localhost:8090/api/health
 - DWD API: dwd.api.proxy.bund.dev
 - Radar: RainViewer (eingebetteter Player, Link/Button "Get RainViewer" bleibt sichtbar).
 Bitte Nutzungsbedinungen beachten, für educational purpuses frei nutzbar
-
-## Anmerkung
-
-Leider habe ich auch nach mehrfacher Anfrage keinen Cloudzugriff von der GWDG bekommen, deshalb läuft alles Lokal. 
-Ich hoffe dafür gibts nicht zu viel Abzug :( . 
 
 
 

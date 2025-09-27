@@ -1,10 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
-cd /home/marvin/Introduction_into_web_development/Abschlussprojekt/landwetter/scripts
+cd /home/cloud/landwetter/scripts
 
-# === ENV für dwd_sync.py (ANPASSEN!) ===
-export PB_URL="http://localhost:8090"
+# === ENV für dwd_sync.py ===
+export PB_URL="http://127.0.0.1:8090"
 export PB_USER_EMAIL="testUser@example.com"
 export PB_USER_PASSWORD="testPassword"
 
@@ -18,4 +18,4 @@ export LAT="51.54"
 export LON="9.93"
 
 # venv-Python direkt aufrufen
-exec /home/marvin/Introduction_into_web_development/Abschlussprojekt/landwetter/scripts/.venv/bin/python3 dwd_sync.py
+exec /home/cloud/landwetter/scripts/.venv/bin/python3 dwd_sync.py
