@@ -22,18 +22,18 @@ PB-API Healthcheck: https://141.5.106.126.sslip.io/pb/api/health
 
 To check if active:
 PocketBase:
-´´´bash
+```bash
 systemctl is-enabled pocketbase
 systemctl is-active pocketbase
-´´´
+```
 Cron:
-´´´bash
+```bash
 systemctl is-active cron
-´´´
+```
 landwetter-dev:
-´´´bash
+```bash
 systemctl status landwetter-dev --no-pager
-´´´
+```
 
 
 ## Stack
