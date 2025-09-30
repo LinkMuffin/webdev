@@ -16,7 +16,7 @@ Wind & Böen, **Mais-Gesundheitsindikator**
 ## Läuft nun auf den GWDG Servern
 Pocketbase Login: https://141.5.106.126.sslip.io/pb/_/#/login
 
-Website: https://141.5.106.126.sslip.io/
+Website: https://141.5.106.126.sslip.io/login
 
 PB-API Healthcheck: https://141.5.106.126.sslip.io/pb/api/health
 
