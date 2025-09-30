@@ -18,6 +18,9 @@ Pocketbase Login: https://141.5.106.126.sslip.io/pb/_/#/login
 
 Website: https://141.5.106.126.sslip.io/login
 
+Username: testUser@example.com
+PW: testPassword
+
 PB-API Healthcheck: https://141.5.106.126.sslip.io/pb/api/health
 
 To check if active:
